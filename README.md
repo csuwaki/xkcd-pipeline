@@ -1,8 +1,6 @@
-# XKCD Comics Pipeline
+# XKCD Comics Pipeline s
 
-This project is a data pipeline that extracts, transforms, and analyzes data from [XKCD](https://xkcd.com/) web comics. The goal is to create a data platform by ingesting, processing, and modeling data to generate insights for decision-making using Airflow, PostgreSQL and dbt.
-
-
+This project is a data pipeline that extracts and transforms data from [XKCD](https://xkcd.com/) web comics. It aims to build a data platform that supports decision-making through efficient ingestion, processing, and modeling of data using Airflow, PostgreSQL, and dbt.
 
 ### Architecture
 
@@ -12,7 +10,7 @@ This project is a data pipeline that extracts, transforms, and analyzes data fro
 ## Features
 
 - Scheduled DAG (Mon/Wed/Fri) with a polling mechanism. We use a Sensor to check for new comics and load them into the database as soon as they become available.
-- Extracts comic metadata and images from the XKCD API.
+- Extracts comic metadata from the [XKCD API](https://xkcd.com/json.html).
 - Loads raw data into PostgreSQL.
 - Transforms data using dbt.
 - Applies data quality checks.
