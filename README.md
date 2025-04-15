@@ -1,5 +1,4 @@
-# XKCD Comics Pipeline s
-
+# XKCD Comics Pipeline  
 This project is a data pipeline that extracts and transforms data from [XKCD](https://xkcd.com/) web comics. It aims to build a data platform that supports decision-making through efficient ingestion, processing, and modeling of data using Airflow, PostgreSQL, and dbt.
 
 ### Architecture
