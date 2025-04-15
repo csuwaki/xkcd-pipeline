@@ -1,0 +1,66 @@
+version: 2
+
+sources:
+  - name: raw_comics
+    description: "Raw comics data from XKCD API."
+    database: xkcd     
+    schema: public     
+    tables:
+      - name: raw_comics
+        description: "Table containing raw comic data from the XKCD API"
+        columns:
+          - name: month
+            description: "Month of comic release"
+          - name: num
+            description: "Unique identifier for the comic"
+            tests:
+              - unique
+              - not_null
+          - name: link
+            description: "Link to the comic (if available)"
+          - name: year
+            description: "Year of comic release"
+          - name: news
+            description: "News related to the comic (if any)"
+          - name: safe_title
+            description: "Safe version of the comic's title (no special characters)"
+          - name: transcript
+            description: "Full transcript of the comic, including dialogues"
+          - name: alt
+            description: "Alternative text or caption for the comic"
+          - name: img
+            description: "URL of the comic image"
+          - name: title
+            description: "Title of the comic"
+          - name: day
+            description: "Day of the month when the comic was published"
+
+models:
+  - name: staging_comics
+    description: "Staging table for raw XKCD comic data, where transformation takes place before loading into analytics tables."
+    columns:
+      - name: comic_id
+        description: "Unique identifier for the comic (renamed from 'num')."
+        tests:
+          - unique
+          - not_null
+      - name: month
+        description: "Month of comic release."
+      - name: link
+        description: "Link to the comic (if available)."
+      - name: year
+        description: "Year of comic release."
+      - name: news
+        description: "News related to the comic (if any)."
+      - name: safe_title
+        description: "Safe version of the comic's title (no special characters)."
+      - name: transcript
+        description: "Full transcript of the comic, including dialogues."
+      - name: alt
+        description: "Alternative text or caption for the comic."
+      - name: img
+        description: "URL of the comic image."
+      - name: title
+        description: "Title of the comic."
+      - name: day
+        description: "Day of the month when the comic was published."
